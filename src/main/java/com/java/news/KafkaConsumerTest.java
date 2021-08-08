@@ -14,8 +14,8 @@ public class KafkaConsumerTest {
 	@SuppressWarnings({ "resource" })
 	public static void main(String[] args) {
 		 Properties props = new Properties();
-		 //props.put("bootstrap.servers", "node-01:9092,node-02:9092,node-03:9092");
-	     props.put("bootstrap.servers", "js001.bigdata.com:6667,js002.bigdata.com:6667,js003.bigdata.com:6667");
+		 props.put("bootstrap.servers", "node-01:9092,node-02:9092,node-03:9092");
+	     //props.put("bootstrap.servers", "js001.bigdata.com:6667,js002.bigdata.com:6667,js003.bigdata.com:6667");
 	     props.put("group.id", "test");
 	     props.put("enable.auto.commit", "true");
 	     props.put("auto.commit.interval.ms", "1000");

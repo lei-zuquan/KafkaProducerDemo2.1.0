@@ -1,4 +1,4 @@
-package com.java.news;
+package com.kafka.dianshang_3c;
 
 import org.apache.kafka.clients.producer.KafkaProducer;
 import org.apache.kafka.clients.producer.Producer;
@@ -6,7 +6,7 @@ import org.apache.kafka.clients.producer.ProducerRecord;
 
 import java.util.Properties;
 
-public class KafkaProducerTest {
+public class DianShang3cProducer {
 
 	// kafka-topics --create --zookeeper node-01:2181,node-02:2181,node-03:2181 --replication-factor 3 --partitions 3 --topic myTopicTest
 	// kafka-topics --zookeeper node-01:2181,node-02:2181,node-03:2181 --topic myTopicTest --describe
@@ -39,18 +39,15 @@ public class KafkaProducerTest {
         //props.put("partitioner.class", "kafka.producer.DefaultPartitioner");
         
 		Producer<String, String> producer = new KafkaProducer<>(props);
-		String topic = "topic_news";
+		String topic = "dianshang_3c";
 		
-		for (int i = 0; i< 6; i++){
+		for (int i = 1; i<= 10; i++){
 			//producer.send(new ProducerRecord<String, String>(
 			//		topic, 
 					//i, // 如果key没有填写的话，默认是null；按照key进行哈希，相同key去一个partition。（如果扩展了partition的数量那么就不能保证了）
 			//		"hello world"));
-			for (int j = 0; j< 3; j++){
-				String key = i + "";
-				producer.send(new ProducerRecord<String, String>(topic, key, "helloworld" + i));
-			}
-			
+			String key = i + "";
+			producer.send(new ProducerRecord<String, String>(topic, key, "1628413821038,广州市,广东省,网站,OPPO Find X3,1,5999"));
 		}
 
 
